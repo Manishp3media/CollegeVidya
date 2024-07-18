@@ -1,0 +1,240 @@
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 2rem;
+}
+
+.university-list div {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.university-list div a {
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.university-list div a:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  table, th, td {
+    display: block;
+    width: 100%;
+  }
+
+  th {
+    display: none;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 1rem;
+    font-weight: bold;
+  }
+}
+/* src/App.css */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close-button {
+  margin-top: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.university-list button {
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.university-list img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.university-list p {
+  margin: 0;
+}
+.university-list button {
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.university-list img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.university-list p {
+  margin: 0;
+}
+
+
+.close-button {
+  margin-top: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.university-list button {
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.university-list img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.university-list p {
+  margin: 0;
+}
+
+button {
+  margin: 10px;
+}
+
+.close-button {
+  margin-top: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.university-list button {
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.university-list img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.university-list p {
+  margin: 0;
+}
+
+
+button {
+  margin: 10px;
+}
+
+.close-button {
+  margin-top: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
+
