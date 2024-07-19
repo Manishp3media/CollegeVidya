@@ -7,6 +7,7 @@ import University from './pages/University';
 import LoginRegister from './components/LoginRegister';
 // import Comparison from './pages/Comparison';
 import CompareResult from './pages/CompareResult';
+import UniversityDetail from './pages/UniversityDetail';
 import './App.css';
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/compare" element={<Compare onCompareClick={handleCompareClick} />} />
           <Route path="/university/:id" element={<University />} />
           {/* <Route path="/compare/:id1/:id2" element={<Comparison />} /> */}
+          <Route path="/university-detail" element={<UniversityDetail />} />
           <Route path="/compare-result" element={<CompareResult />} />
         </Routes>
       </div>
