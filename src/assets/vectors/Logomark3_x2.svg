@@ -1,0 +1,8 @@
+<svg width="60" height="96" viewBox="0 0 60 96" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect  x="0.5" y="38.4" width="19.2" height="19.2" fill="#039855"/>
+<rect  x="58.1" y="57.6" width="19.2" height="19.2" transform="rotate(360 58.1 57.6)" fill="#027A48"/>
+<path d="M19.7,38.4L38.9,19.2L38.9,38.4L19.7,57.6L19.7,38.4Z" fill="#A6F4C5"/>
+<path d="M19.7,57.6L38.9,38.4L38.9,57.6L19.7,76.8L19.7,57.6Z" transform="rotate(360 29.3 57.6)" fill="#6CE9A6"/>
+<path d="M0.5,38.4L38.9,0L38.9,19.2L19.7,38.4L0.5,38.4Z" fill="#32D583"/>
+<path d="M19.7,96L58.1,57.6L58.1,76.8L38.9,96L19.7,96Z" transform="rotate(360 38.9 76.8)" fill="#12B76A"/>
+</svg>

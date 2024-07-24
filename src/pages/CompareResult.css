@@ -1,171 +1,109 @@
-.compare-result-container {
+/* Book a Seat button with instant color change */
+.book-seat-button {
+  /* width: 100%; */
+  background-color: #6c757d; /* Default color: Dark Grey */
+  color: #fff; /* Text color: White */
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0s; /* No transition effect */
+}
+
+.book-seat-button:hover {
+  background-color: #007bff; /* Blue color for hover */
+}
+
+.book-seat-button:active {
+  background-color: #28a745; /* Green color for active state */
+}
+
+/* Ensure Course Name and Duration are in separate <td> elements */
+.course-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-  color: #fff;
-}
-
-.university-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.university-card {
-  text-align: center;
-  width: 45%;
-  background: rgba(164, 164, 164, 0.704);
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s, box-shadow 0.3s;
-  transform-style: preserve-3d;
-}
-
-.university-card:hover {
-  transform: perspective(1000px) rotateY(5deg);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.university-image {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.university-image:hover {
-  transform: scale(1.1);
-}
-
-.university-info {
-  margin-top: 10px;
-}
-
-.info-box {
-  background: rgba(0, 0, 0, 0.2); /* Darker background for better text contrast */
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  transition: transform 0.3s, background-color 0.3s;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff; /* Ensure text is white for better contrast */
 }
 
 .course-info {
-  background: rgba(0, 0, 0, 0.1); /* Darker background for better text contrast */
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  transition: transform 0.3s, background-color 0.3s;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff; /* Ensure text is white for better contrast */
-}
-
-.info-box:hover {
-  transform: scale(1.05);
-  background-color: rgba(0, 0, 0, 0.4); /* Slightly darker on hover */
-}
-
-.course-info:hover {
-  transform: scale(1.05);
-  background-color: rgba(0, 0, 0, 0.3); /* Slightly darker on hover */
+  padding: 5px 0;
 }
 
 .course-box {
-  margin: 5px 0;
-}
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 260px;
-}
-
-.icon {
-  font-size: 2em;
-  color: white;
-  cursor: pointer; /* Ensure cursor changes to pointer on hover */
-}
-
-.star-rating .star {
-  font-size: 1.5em;
-  color: #fff;
-}
-
-.star-rating .star.filled {
-  color: gold;
-}
-
-.evaluation-bar {
+  background-color: #f9f9f9;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  padding: 5px;
   width: 100%;
-  height: 20px;
-  background-color: rgba(0, 128, 0, 0.2);
-  border-radius: 5px;
-  margin: 5px 0;
-  position: relative;
+  margin-bottom: 10px;
 }
 
-.filled-bar {
-  height: 100%;
-  background-color: green;
-  border-radius: 5px;
+/* Rest of the existing styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.compare-result-container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid #ddd;
+  padding: 16px; /* Increased padding for row height */
+  text-align: center;
+}
+
+.comparison-table th {
+  background-color: #f2f2f2;
+}
+
+.feature-name {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.info-box {
+  position: relative;
+  padding: 20px;
 }
 
 .key-comparison {
   margin-top: 20px;
-  width: 100%;
-  text-align: center;
-  background: rgba(110, 110, 110, 0.394);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s, box-shadow 0.3s;
-  transform-style: preserve-3d;
-}
-
-.key-comparison:hover {
-  transform: perspective(1000px) ;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .comparison-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .comparison-item {
-  width: 100%;
-  margin: 10px 0;
+  margin-bottom: 20px;
 }
 
-.book-seat-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: rgba(17, 110, 10, 0.873);
-  color: white;
+.download-pdf-button {
+  background-color: #ffd700; /* Golden button color */
+  color: #000;
   border: none;
-  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  backdrop-filter: blur(10px);
+  border-radius: 5px;
 }
 
-.book-seat-button:hover {
-  background-color: rgba(166, 166, 166, 0.412);
-  transform: scale(1.05);
+.download-pdf-button:hover {
+  background-color: #e6c500;
 }
 
 .popup {
@@ -174,46 +112,128 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(167, 173, 167, 0.907);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(10px);
   z-index: 1000;
 }
 
 .popup-content {
-  background: rgba(182, 182, 182, 0.294);
+  background: #fff;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 600px;
   position: relative;
-  max-width: 500px;
+}
+
+.popup-content img {
   width: 100%;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #060000;
+  height: auto;
+  border-radius: 5px;
 }
 
 .close-popup {
   position: absolute;
   top: 10px;
   right: 10px;
+  font-size: 24px;
   cursor: pointer;
-  font-size: 1.5em;
-  color: #5d3333; /* Ensure the close button is visible */
 }
 
-.popup-image {
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contact-icon {
+  font-size: 24px;
+  color: #28a745; /* Green color for icons */
+}
+
+.star-rating {
+  display: inline-block;
+  font-size: 20px;
+  color: #ffcc00; /* Gold color for stars */
+}
+
+.star {
+  display: inline-block;
+  margin-right: 2px;
+}
+
+.star.filled {
+  color: #ffcc00; /* Gold color for filled stars */
+}
+
+.evaluation-bar {
   width: 100%;
-  height: auto;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  .university-card {
-    width: 90%;
-  }
+.filled-bar {
+  height: 10px;
+  background-color: #0056b3; /* Blue color for filled bar */
+}
 
-  .key-comparison {
-    width: 100%;
-  }
+.university-logo {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.features-button {
+  background-color: #ffd700; /* Golden button color */
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.features-button:hover {
+  background-color: #e6c500;
+}
+.compare-result-container .h1{
+  text-align: center;
+  color: #212121;
+}
+/* Summary line styling */
+.summary-line {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-line h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.summary-line p {
+  margin: 5px 0;
+}
+/* Sticker styling */
+.sticker {
+  position: absolute;
+  top: 23px;
+  right: 2px;
+  background-color: #88fa1d;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+
 }

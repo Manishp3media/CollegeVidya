@@ -1,199 +1,323 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
+/* Home.css */
+
+/* General styles for college-home */
+.college-home {
+  position: relative;
+}
+
+/* Background image for the specified div */
+.young-female-university-graduate-academic-cap-sitting-table-smiling-pointing-left-future-lawyer-engineer-showing-idea-copy-1 {
+  background: url('../assets/images/YoungFemaleUniversityGraduateAcademicCapSittingTableSmilingPointingLeftFutureLawyerEngineerShowingIdeaCopy1.jpeg');
+  position: absolute;
+  left: -2rem;
+  bottom: 93.3rem;
+  width: 92.1rem;
+  height: 41.6rem;
+}
+
+/* Style for rectangle-1 */
+ .college-home .rectangle-1 {
+  /* background: url('../assets/images/Rectangle1.jpeg') 50% / cover no-repeat; */
+  position: absolute;
+  left: 50%;
+  top: 11.9rem;
+  translate: -50% 0;
+  width: 67.4rem;
+  height: 38.4rem;
+} 
+ .rectangle-2 {
+  background: url('../assets/images/Rectangle2.jpeg') 50% / cover no-repeat;
+  width: 100%;
+  height: 15rem;
+  margin-bottom: 2rem;
+} 
+/* General container styling */
+.container-28, .container-6 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+/* Group container styling */
+.group-11, .group-12, .group-13, .group-6, .group-7, .group-8, .group-9, .group-10, .group-14 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Inner container styling */
+.container-1, .container-2, .container-3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4CAF50;
+  margin-bottom: 8px;
+}
+
+/* Course text styling */
+.course-1, .course-2, .course-3 {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Rectangle styling */
+.rectangle-11 {
+  width: 100%;
+  height: 2px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
+
+/* Specific group text styling */
+.pg-courses, .ug-courses, .executive-education, .job-guarantee, .doctorate-ph-d, .doctorate-ph-d-1 {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+/* Additional styles for hover effects */
+.group-11:hover, .group-12:hover, .group-13:hover, .group-6:hover, .group-7:hover, .group-8:hover, .group-9:hover, .group-10:hover, .group-14:hover {
+  background: #e0f7fa;
+  transition: background 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container-28, .container-6 {
+    flex-direction: column;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #2c3e50;
-    color: #ecf0f1;
   }
-  
-  .navbar .logo {
-    font-size: 1.5rem;
-  }
-  
-  .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .navbar .nav-links li {
-    display: inline;
-  }
-  
-  .navbar .nav-links a {
-    color: #ecf0f1;
-    padding: 0.5rem 1rem;
-  }
-  
-  .navbar .nav-links a:hover {
-    background-color: #34495e;
-    border-radius: 5px;
-  }
-  
-  /* Hero Section */
-  .hero-section {
-    background-image: url('Students.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 3rem 0;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .hero-section .hero-content {
-    max-width: 600px;
-    margin: auto;
-  }
-  
-  .hero-section h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-section .search-bar {
-    margin-top: 1rem;
-    padding: 0.5rem;
+  .group-11, .group-12, .group-13, .group-6, .group-7, .group-8, .group-9, .group-10, .group-14 {
     width: 80%;
-    max-width: 400px;
-    border: none;
-    border-radius: 5px;
   }
-  
-  /* Courses Section */
-  .courses-section {
-    padding: 2rem 0;
-    background-color: #ecf0f1;
+}
+
+.rectangle-11 {
+  background: url('../assets/images/Rectangle20.png') 50% / cover no-repeat;
+  width: 100%;
+  height: 15rem;
+  margin-top: 2rem;
+}
+.container-36 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  box-sizing: border-box;
+}
+
+/* Style for container-25 */
+.container-25 {
+  /* Add your styles here */
+}
+
+/* Style for container */
+.containers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* Style for container-10 */
+.container-10 {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for logo-39 */
+.logo-39 {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Style for logo text */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Style for explore-programs */
+.explore-programs {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.explore-programs:hover {
+  color: #007BFF; /* Change this to your desired hover color */
+}
+
+/* Style for top-universities */
+.top-universities {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.top-universities:hover {
+  color: #007BFF; /* Change this to your desired hover color */
+}
+
+/* Style for compare */
+.compare {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-decoration: none; /* Optional: Remove underline from link */
+}
+
+.compare:hover {
+  color: #007BFF; /* Change this to your desired hover color */
+}
+
+/* Style for more */
+.more {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.more:hover {
+  color: #007BFF; /* Change this to your desired hover color */
+}
+
+/* Style for sign-in */
+.sign-in {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sign-in:hover {
+  color: #007BFF; /* Change this to your desired hover color */
+}
+
+/* Style for search */
+.search {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.search:hover {
+  color: #007BFF; /* Change this to your desired hover color */
+}
+/* General container styling */
+/* General container styling */
+.container-11 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+/* Group button styling */
+.group-18, .group-19, .group-20, .group-21, .group-22, .group-23, .group-24, .group-25 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 15px;
+  background: #a4aeb6;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.group-18:hover, .group-19:hover, .group-20:hover, .group-21:hover, .group-22:hover, .group-23:hover, .group-24:hover, .group-25:hover {
+  background: #5a6268;
+  transition: background 0.3s ease;
+}
+
+/* Container inside button styling */
+.container-8, .container-34, .container-19, .container-41, .container-16, .container-17, .container-50, .container-24 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group-177, .group-17, .group-171, .group-172, .group-173, .group-174, .group-175, .group-176 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-learn-graduation-user-avatar-man, .student-learn-graduation-user-avatar-man-1, .student-learn-graduation-user-avatar-man-2, .student-learn-graduation-user-avatar-man-3, .student-learn-graduation-user-avatar-man-4, .student-learn-graduation-user-avatar-man-5, .student-learn-graduation-user-avatar-man-6, .student-learn-graduation-user-avatar-man-7 {
+  width: 100px;
+  height: 100px;
+}
+
+.container-27, .container-12, .container-42, .container-30, .container-1, .container-37, .container-4, .container-15 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.online-mba, .online-mba-1, .online-mba-2, .online-mba-3, .online-mba-4, .online-mba-5, .online-mba-6, .online-mba-7 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.group-15, .group-151, .group-152, .group-153, .group-154, .group-155, .group-156, .group-157 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.years, .years-1, .years-2, .years-3, .years-4, .years-5, .years-6, .years-7 {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Updated comparisons styling */
+.group-167, .group-161, .group-162, .group-163, .group-164, .group-165, .group-166 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.comparisons, .comparisons-1, .comparisons-2, .comparisons-3, .comparisons-4, .comparisons-5, .comparisons-6, .comparisons-7 {
+  font-size: 15px;
+  background-color: forestgreen;
+  color: white;
+  border-radius: 5pc;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container-11 {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .courses-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
+  .group-18, .group-19, .group-20, .group-21, .group-22, .group-23, .group-24, .group-25 {
+    width: 80%;
   }
-  
-  .course-card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 200px;
-    text-align: center;
-  }
-  
-  /* Universities Section */
-  .universities-section {
-    padding: 2rem 0;
-  }
-  
-  .universities-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .university-card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 200px;
-    text-align: center;
-  }
-  
-  .university-image {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  /* Compare Section */
-  .compare-section {
-    padding: 2rem 0;
-    background-color: #ecf0f1;
-    text-align: center;
-  }
-  
-  .compare-button {
-    padding: 0.5rem 1rem;
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .compare-button:hover {
-    background-color: #34495e;
-  }
-  
-  /* Testimonials Section */
-  .testimonials-section {
-    padding: 2rem 0;
-  }
-  
-  .testimonials-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .testimonial-card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 200px;
-    text-align: center;
-  }
-  
-  /* Blogs Section */
-  .blogs-section {
-    padding: 2rem 0;
-    background-color: #ecf0f1;
-  }
-  
-  .blogs-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .blog-card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 200px;
-    text-align: center;
-  }
-  
-  /* Footer */
-  .footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 1rem 0;
-  }
-  
+}

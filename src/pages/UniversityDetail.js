@@ -70,6 +70,10 @@ const UniversityDetail = () => {
             <p>{university.campusSize}</p>
           </div>
           <div className="info-box">
+            <h3>Total Fees</h3>
+            <p>{university.fees}</p>
+          </div>
+          <div className="info-box">
             <h3>Courses</h3>
             {university.courses.map((course, index) => (
               <div key={index} className="course-info">

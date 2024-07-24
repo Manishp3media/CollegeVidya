@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import LoginRegister from '../components/LoginRegister';
-import './Compare.css'; // Import the CSS file
+import SelectUniversities from './SelectUniversities';
+import './Compare.css';
 
 const Compare = () => {
   const [universities, setUniversities] = useState([]);
   const [selectedUniversities, setSelectedUniversities] = useState([]);
-  const [showLoginRegister, setShowLoginRegister] = useState(false);
+  const [showLoginRegister, setShowLoginRegister] = useState(true); // Show Login/Register popup immediately
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showSelectPopup, setShowSelectPopup] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,84 +26,44 @@ const Compare = () => {
     fetchUniversities();
   }, []);
 
-  const handleCompareClick = () => {
-    if (!isAuthenticated) {
-      setShowLoginRegister(true);
-    } else {
+  useEffect(() => {
+    if (isAuthenticated) {
+      setShowLoginRegister(false);
       setShowSelectPopup(true);
     }
-  };
+  }, [isAuthenticated]);
 
   const handleLoginRegisterSuccess = () => {
     setIsAuthenticated(true);
-    setShowLoginRegister(false);
-    setShowSelectPopup(true);
   };
 
   const closePopup = () => {
     setShowLoginRegister(false);
     setShowSelectPopup(false);
-  };
-
-  const handleSelectUniversity = (university) => {
-    if (selectedUniversities.includes(university)) {
-      setSelectedUniversities(selectedUniversities.filter(u => u !== university));
-    } else if (selectedUniversities.length < 2) {
-      setSelectedUniversities([...selectedUniversities, university]);
-    }
+    setSelectedUniversities([]);
   };
 
   const handleContinue = () => {
-    if (selectedUniversities.length === 2) {
+    if (selectedUniversities.length === 3) {
       navigate('/compare-result', { state: { universities: selectedUniversities } });
     } else {
-      alert('Please select two universities to compare.');
+      alert('Please select three universities to compare.');
     }
   };
 
-  const filteredUniversities = universities.filter(university =>
-    university.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
     <div className="compare-container">
-      <h1>University Comparison</h1>
-      <button className="compare-button" onClick={handleCompareClick}>Compare Colleges</button>
       {showLoginRegister && (
         <LoginRegister onClose={closePopup} onSuccess={handleLoginRegisterSuccess} />
       )}
       {showSelectPopup && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <h2>Select Universities to Compare</h2>
-            <input
-              type="text"
-              placeholder="Search for a college..."
-              className="search-bar"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <div className="university-list">
-              {filteredUniversities.map((university) => (
-                <div key={university._id} className="university-option">
-                  <input
-                    type="checkbox"
-                    checked={selectedUniversities.includes(university)}
-                    onChange={() => handleSelectUniversity(university)}
-                  />
-                  <img
-                    src={`http://localhost:5000/images/${university.image}`}
-                    alt={university.name}
-                    className="university-image"
-                  />
-                  <label>{university.name}</label>
-                </div>
-              ))}
-            </div>
-            <button className="continue-button" onClick={handleContinue}>Continue</button>
-            <button className="close-button" onClick={closePopup}>Close</button>
-          </div>
-        </div>
+        <SelectUniversities
+          universities={universities}
+          selectedUniversities={selectedUniversities}
+          setSelectedUniversities={setSelectedUniversities}
+          onClose={closePopup}
+          onContinue={handleContinue}
+        />
       )}
     </div>
   );

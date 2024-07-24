@@ -1,0 +1,115 @@
+/* UniversityDetail.css */
+
+.university-detail-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .university-detail-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .university-detail-card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .university-detail-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .university-detail-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* .info-box {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+  } */
+  
+  /* .info-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #666;
+  } */
+  
+  /* .info-box p {
+    font-size: 16px;
+    color: #444;
+  } */
+  
+  /* .contact-icons {
+    display: flex;
+    gap: 10px;
+  } */
+  
+  .contact-icons .icon {
+    font-size: 24px;
+    color: #06c941;
+    cursor: pointer;
+  }
+  
+  .contact-icons .icon:hover {
+    color: #0056b3;
+  }
+  
+  .star-rating {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .star {
+    font-size: 24px;
+    color: #ddd;
+  }
+  
+  .star.filled {
+    color: #ffc107;
+  }
+  
+  .evaluation-bar {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .filled-bar {
+    background-color: #28a745;
+    height: 100%;
+  }
+  
+  .course-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .course-box {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .course-box:first-child {
+    font-weight: bold;
+  }
+  
+  
