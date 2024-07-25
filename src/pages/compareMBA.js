@@ -11,6 +11,7 @@ const CompareMBA = () => {
   const [showLoginRegister, setShowLoginRegister] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showSelectPopup, setShowSelectPopup] = useState(false);
+  const [filteredUniversities, setFilteredUniversities] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +19,7 @@ const CompareMBA = () => {
       try {
         const response = await axios.get('http://localhost:5000/api/universities');
         setUniversities(response.data);
+        setFilteredUniversities(response.data);
       } catch (error) {
         console.error('Error fetching universities:', error);
       }
@@ -44,11 +46,18 @@ const CompareMBA = () => {
   };
 
   const handleContinue = () => {
-    if (selectedUniversities.length === 3) {
+    if (selectedUniversities.length >= 2) {
       navigate('/compare-result', { state: { universities: selectedUniversities } });
     } else {
-      alert('Please select three universities to compare.');
+      alert('Please select at least two universities to compare.');
     }
+  };
+
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setFilteredUniversities(
+      universities.filter((u) => u.name.toLowerCase().includes(query))
+    );
   };
 
   return (
@@ -65,14 +74,11 @@ const CompareMBA = () => {
                 type="text"
                 className="search-bar"
                 placeholder="Search Colleges..."
-                onChange={(e) => {
-                  const query = e.target.value.toLowerCase();
-                  setUniversities(universities.filter(u => u.name.toLowerCase().includes(query)));
-                }}
+                onChange={handleSearch}
               />
             </div>
             <SelectUniversities
-              universities={universities}
+              universities={filteredUniversities}
               selectedUniversities={selectedUniversities}
               setSelectedUniversities={setSelectedUniversities}
               onClose={closePopup}
@@ -95,7 +101,9 @@ const CompareMBA = () => {
             </p>
             <h4>Details</h4>
             <ul>
-              <li>MBA full form is Master of Business Administration. MBA course is a 2-year postgraduate level degree program focusing on management, business, and entrepreneurial concepts. MBA course curriculum is designed in a way that there is a combination of both theoretical and practical aspects; wherein classroom sessions and seminars take care of the theoretical knowledge and internships and workshops provide candidates with industrial exposure and real-time problems making them industry-ready.</li>
+              <li>
+                MBA full form is Master of Business Administration. MBA course is a 2-year postgraduate level degree program focusing on management, business, and entrepreneurial concepts. MBA course curriculum is designed in a way that there is a combination of both theoretical and practical aspects; wherein classroom sessions and seminars take care of the theoretical knowledge and internships and workshops provide candidates with industrial exposure and real-time problems making them industry-ready.
+              </li>
               <li>An MBA is designed to help graduates gain a better understanding of business management functions.</li>
             </ul>
             <p>

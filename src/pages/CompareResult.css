@@ -4,19 +4,26 @@
   background-color: #6c757d; /* Default color: Dark Grey */
   color: #fff; /* Text color: White */
   border: none;
-  padding: 10px;
+  padding: 10px 25px;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0s; /* No transition effect */
+  animation: colorChange 4s infinite;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
 }
-
-.book-seat-button:hover {
-  background-color: #007bff; /* Blue color for hover */
+.compare-result-container h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #282828;
+  align-items: center;
+}
+/* .book-seat-button:hover {
+  background-color: #007bff; 
 }
 
 .book-seat-button:active {
-  background-color: #28a745; /* Green color for active state */
-}
+  background-color: #28a745; 
+} */
 
 /* Ensure Course Name and Duration are in separate <td> elements */
 .course-details {
@@ -39,7 +46,7 @@
 
 /* Rest of the existing styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -62,6 +69,7 @@ body {
   border: 1px solid #ddd;
   padding: 16px; /* Increased padding for row height */
   text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .comparison-table th {
@@ -77,9 +85,13 @@ body {
   position: relative;
   padding: 20px;
 }
+.info-box .fee-font{
+  font-weight: bold;
+}
 
 .key-comparison {
   margin-top: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .comparison-box {
@@ -100,6 +112,7 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .download-pdf-button:hover {
@@ -145,13 +158,18 @@ body {
 .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 35px;
 }
 
 .contact-icon {
   font-size: 24px;
   color: #28a745; /* Green color for icons */
+  cursor: pointer;
 }
+.contact-icon:hover{
+  color: #0056b3;
+}
+
 
 .star-rating {
   display: inline-block;
@@ -186,7 +204,26 @@ body {
   display: block;
   margin: 0 auto;
 }
-
+@keyframes colorChange {
+  0% {
+    background-color: #f7c41b; /* Start color */
+  }
+  20% {
+    background-color: #ca3b3b; /* Light red */
+  }
+  40% {
+    background-color: #23dd23; /* Light green */
+  }
+  60% {
+    background-color: #141481; /* Light blue */
+  }
+  80% {
+    background-color: #dc16f6; /* End color (same as start) */
+  }
+  100% {
+    background-color: #f9840f; /* End color (same as start) */
+  }
+} 
 .features-button {
   background-color: #ffd700; /* Golden button color */
   color: #000;
@@ -195,6 +232,7 @@ body {
   cursor: pointer;
   border-radius: 5px;
   margin-top: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .features-button:hover {
@@ -212,6 +250,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .summary-line h2 {
@@ -236,4 +275,30 @@ body {
   text-align: center;
   z-index: 1;
 
+}
+ #ask-experts-button {
+  background-color: #15ce12;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 16px;
+  display: flex;
+ align-items:center; 
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ #ask-experts-button:hover {
+  background-color: #1d9053;
+}
+
+#ask-experts-button .icon {
+  margin-right: 5px;
+}
+.compare-result-container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }

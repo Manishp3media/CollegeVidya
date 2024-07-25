@@ -86,7 +86,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   width: 70%;
-  max-height: 250px;
+  max-height: 232px;
   gap: 10px; /* Add gap between boxes */
 }
 
@@ -158,4 +158,15 @@ h2 {
 
 .star.filled {
   color: gold;
+}
+.table-item.fees-item .fees-highlight {
+  background-color: rgb(246, 160, 0);
+  padding: 3px 5px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+.table-item.fees-item .fees-highlight:hover{
+  background-color: rgb(255, 115, 0);
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SelectUniversities.css';
 
 const SelectUniversities = ({ universities, selectedUniversities, setSelectedUniversities, onClose, onContinue }) => {
@@ -14,18 +14,18 @@ const SelectUniversities = ({ universities, selectedUniversities, setSelectedUni
 
   const handleCancel = () => {
     setSelectedUniversities([]);
-    document.querySelector('.selected-popup').classList.remove('show'); // Hide the popup
+    onClose();
   };
 
   return (
     <div className="select-universities-container">
-      {/* <h2>Select Universities to Compare</h2> */}
       <div className="university-table">
         <div className="table-header">
           <div className="table-header-item">Image</div>
           <div className="table-header-item">Name</div>
           <div className="table-header-item">Rating</div>
           <div className="table-header-item">Fees</div>
+          <div className="table-header-item">Approved BY</div>
           <div className="table-header-item">Compare</div>
         </div>
         <div className="university-list">
@@ -44,7 +44,9 @@ const SelectUniversities = ({ universities, selectedUniversities, setSelectedUni
                   <span key={index} className={`star ${index < university.rating ? 'filled' : ''}`}>&#9733;</span>
                 ))}
               </div>
-              <div className="table-item fees-item">{university.fees}</div>
+              <div className="table-item fees-item">
+              <span className="fees-highlight">{university.fees} &gt;</span></div>
+              <div className="table-item name-item">{university.approval}</div>
               <div className="table-item compare-item">
                 <button 
                   className="select-button" 
@@ -79,7 +81,7 @@ const SelectUniversities = ({ universities, selectedUniversities, setSelectedUni
               </div>
             ))}
           </div>
-          {selectedUniversities.length === 3 && (
+          {(selectedUniversities.length === 2 || selectedUniversities.length === 3) && (
             <div className="popup-actions">
               <button className="continue-button" onClick={onContinue}>Continue</button>
               <button className="cancel-button" onClick={handleCancel}>Cancel</button>

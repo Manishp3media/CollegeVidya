@@ -31,6 +31,10 @@ nav a:hover {
   padding: 1rem;
   /* border: 1px solid #ddd; */
   border-radius: 5px;
+  height: 100px;
+  align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .university-list div a {

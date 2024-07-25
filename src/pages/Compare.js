@@ -44,10 +44,10 @@ const Compare = () => {
   };
 
   const handleContinue = () => {
-    if (selectedUniversities.length === 3) {
+    if (selectedUniversities.length >= 2) {
       navigate('/compare-result', { state: { universities: selectedUniversities } });
     } else {
-      alert('Please select three universities to compare.');
+      alert('Please select at least two universities to compare.');
     }
   };
 

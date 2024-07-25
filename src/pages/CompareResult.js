@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { FaPhone, FaWhatsapp,  FaQuestionCircle } from 'react-icons/fa';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import './CompareResult.css';
 
 const CompareResult = () => {
@@ -9,7 +11,6 @@ const CompareResult = () => {
   const [selectedUniversity, setSelectedUniversity] = useState(null);
 
   const safeUniversities = Array.isArray(universities) ? universities : [];
-
   const safeFeatures = (features) => Array.isArray(features) ? features.join(', ') : '';
 
   const renderStars = (rating) => {
@@ -37,11 +38,9 @@ const CompareResult = () => {
     setSelectedUniversity(null);
   };
 
-  // Find the best university based on features and fees
   const getBestUniversity = () => {
     if (safeUniversities.length === 0) return null;
 
-    // Example criteria: lowest fees and highest rating
     let bestUniversity = safeUniversities[0];
     for (const university of safeUniversities) {
       if (
@@ -56,9 +55,130 @@ const CompareResult = () => {
 
   const bestUniversity = getBestUniversity();
 
+  const downloadPDF = async () => {
+    const doc = new jsPDF();
+
+    const title = 'Comparison Report';
+    const subtitle = 'Comparison of Selected Universities';
+
+    // Title
+    doc.setFontSize(18);
+    doc.setTextColor(40);
+    doc.text(title, 14, 22);
+
+    // Subtitle
+    doc.setFontSize(12);
+    doc.setTextColor(100);
+    doc.text(subtitle, 14, 32);
+
+    const tableColumn = ['Feature', ...safeUniversities.map((uni) => uni.name)];
+    const tableRows = [];
+
+    // Adding rows
+    tableRows.push([
+      'Price',
+      ...safeUniversities.map((uni) => `${uni.fees}`)
+    ]);
+    tableRows.push([
+      'Course Name',
+      ...safeUniversities.map((uni) =>
+        uni.courses.map((course) => course.name).join(', ')
+      )
+    ]);
+    tableRows.push([
+      'Course Duration',
+      ...safeUniversities.map((uni) =>
+        uni.courses.map((course) => course.duration).join(', ')
+      )
+    ]);
+    tableRows.push([
+      'Features',
+      ...safeUniversities.map((uni) => safeFeatures(uni.features))
+    ]);
+    tableRows.push([
+      'Rating',
+      ...safeUniversities.map((uni) => `${uni.rating} stars`)
+    ]);
+    tableRows.push([
+      'Placement Percentage',
+      ...safeUniversities.map((uni) => `${uni.placementPercentage}%`)
+    ]);
+    tableRows.push([
+      'Campus Size',
+      ...safeUniversities.map((uni) => uni.campusSize)
+    ]);
+    tableRows.push([
+      'Approved By',
+      ...safeUniversities.map((uni) => uni.approval)
+    ]);
+
+    doc.autoTable({
+      startY: 40,
+      head: [tableColumn],
+      body: tableRows,
+      styles: {
+        fontSize: 10,
+        halign: 'center',
+        fillColor: '#f9f9f9',
+        textColor: '#282828',
+      },
+      headStyles: {
+        fillColor: [255, 215, 0],
+        textColor: [0, 0, 0],
+        fontSize: 12,
+      },
+      alternateRowStyles: {
+        fillColor: [245, 245, 245],
+      },
+      columnStyles: {
+        0: { cellWidth: 40 }, // Column width for Feature
+      },
+      didDrawCell: function (data) {
+        if (data.column.index > 0 && data.section === 'body' && data.row.index === 0) {
+          const universityIndex = data.column.index - 1;
+          const university = safeUniversities[universityIndex];
+          if (university && university.imageBase64) {
+            const { x, y, cell } = data;
+            doc.addImage(
+              university.imageBase64,
+              'JPEG',
+              cell.x + cell.padding('left'),
+              cell.y + 2,
+              15,
+              15
+            );
+          }
+        }
+      },
+    });
+
+    // Best university section
+    if (bestUniversity) {
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 255);
+      const bestUniText = [
+        `Best University Based on Features and Fees:`,
+        `Name: ${bestUniversity.name}`,
+        `Fees: ${bestUniversity.fees}`,
+        `Rating: ${bestUniversity.rating}`,
+      ];
+      bestUniText.forEach((text, index) => {
+        doc.text(text, 14, doc.autoTable.previous.finalY + 10 + (index * 6));
+      });
+    }
+
+    doc.save('comparison.pdf');
+  };
+
   return (
     <div className="compare-result-container">
+    <div className="header">
       <h1>COMPARISON TABLE</h1>
+      <button id="ask-experts-button">
+        <FaQuestionCircle className="icon" />
+        Ask Experts
+      </button>
+    </div>
       <table className="comparison-table">
         <thead>
           <tr>
@@ -81,7 +201,9 @@ const CompareResult = () => {
             <td className="feature-name">Price</td>
             {safeUniversities.map((university) => (
               <td key={university._id} className="info-box">
+                <div className='fee-font'>
                 {university.fees}
+                </div>
                 <span className="sticker">₹2500 Off</span>
               </td>
             ))}
@@ -150,17 +272,25 @@ const CompareResult = () => {
             ))}
           </tr>
           <tr>
-            <td className="feature-name">Contact</td>
+            <td className="feature-name">Approved BY</td>
             {safeUniversities.map((university) => (
               <td key={university._id} className="info-box">
-                <div className="contact-icons">
-                  <a href={`tel:${university.phone}`}><FaPhone className="contact-icon" /></a>
-                  <a href={`https://wa.me/${university.whatsapp}`}><FaWhatsapp className="contact-icon" /></a>
-                </div>
+                {university.approval}
               </td>
             ))}
           </tr>
           <tr>
+            <td className="feature-name">Contact</td>
+            {safeUniversities.map((university) => (
+              <td key={university._id} className="info-box">
+                <div className="contact-icons">
+                  <FaPhone className="contact-icon" />
+                  <FaWhatsapp className="contact-icon" />
+                </div>
+              </td>
+            ))}
+          </tr>
+ <tr>
             <td className="feature-name">History</td>
             {safeUniversities.map((university) => (
               <td key={university._id} className="info-box">
@@ -178,7 +308,6 @@ const CompareResult = () => {
           </tr>
         </tbody>
       </table>
-
       <div className="key-comparison">
         <div className="comparison-box">
           <h2>Key Comparison</h2>
@@ -197,7 +326,7 @@ const CompareResult = () => {
             {safeUniversities.map((university) => (
               <div key={university._id}>
                 <h4>{university.name}</h4>
-                <p>Rating</p>{renderStars(university.rating)}
+                <p>Rating: {renderStars(university.rating)}</p>
               </div>
             ))}
           </div>
@@ -209,21 +338,27 @@ const CompareResult = () => {
         </div>
       )}
         </div>
-        <button className="download-pdf-button">Download PDF</button>
       </div>
 
+      <button className="download-pdf-button" onClick={downloadPDF}>
+        Download PDF
+      </button>
+
       {selectedUniversity && (
-        <div className="popup">
-          <div className="popup-content">
-            <span className="close-popup" onClick={handleClosePopup}>×</span>
+        <div className="popup" onClick={handleClosePopup}>
+          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close-popup" onClick={handleClosePopup}>&times;</span>
             <img
               src={`http://localhost:5000/images/${selectedUniversity.image}`}
               alt={selectedUniversity.name}
-              className="popup-image"
             />
             <h2>{selectedUniversity.name}</h2>
-            <p>{selectedUniversity.history}</p>
-            <button className="book-seat-button">Book a Seat</button>
+            <p>Fees: {selectedUniversity.fees}</p>
+            <p>Rating: {renderStars(selectedUniversity.rating)}</p>
+            <p>Placement Percentage: {selectedUniversity.placementPercentage}%</p>
+            <p>Campus Size: {selectedUniversity.campusSize}</p>
+            <p>Approved By: {safeFeatures(selectedUniversity.approval)}</p>
+            <p>Features: {safeFeatures(selectedUniversity.features)}</p>
           </div>
         </div>
       )}
@@ -232,3 +367,4 @@ const CompareResult = () => {
 };
 
 export default CompareResult;
+
