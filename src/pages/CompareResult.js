@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaPhone, FaWhatsapp,  FaQuestionCircle } from 'react-icons/fa';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -9,6 +9,7 @@ const CompareResult = () => {
   const location = useLocation();
   const { universities } = location.state || {};
   const [selectedUniversity, setSelectedUniversity] = useState(null);
+  const navigate = useNavigate();
 
   const safeUniversities = Array.isArray(universities) ? universities : [];
   const safeFeatures = (features) => Array.isArray(features) ? features.join(', ') : '';
@@ -174,7 +175,7 @@ const CompareResult = () => {
     <div className="compare-result-container">
     <div className="header">
       <h1>COMPARISON TABLE</h1>
-      <button id="ask-experts-button">
+      <button id="ask-experts-button" onClick={() => navigate('/experts')}>
         <FaQuestionCircle className="icon" />
         Ask Experts
       </button>

@@ -182,6 +182,7 @@ export default function CollegeHome() {
             </div>
           </button>
           </Link>
+          <Link to="/compareMBA" className="compareMBA">
           <button className="group-21">
             <div className="container-41">
               <div className="group-172">
@@ -204,6 +205,7 @@ export default function CollegeHome() {
               </span>
             </div>
           </button>
+          </Link>
         </div>
         <div className="container-14">
           <div className="group-22">
